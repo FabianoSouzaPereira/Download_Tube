@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Download Tube</string>
+    <string name="title_activity_downloads">Downloads</string>
 </resources>
