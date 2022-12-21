@@ -3,10 +3,18 @@ package com.fabianospdev.downloadtube
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -38,7 +46,7 @@ class Downloads : ComponentActivity() {
 
     @Composable
     private fun DownloadTopBar() {
-        SmallTopAppBar(
+        TopAppBar(
             title = {
                 Text(
                     text = stringResource(id = R.string.title_activity_downloads),
@@ -57,19 +65,33 @@ class Downloads : ComponentActivity() {
                     style = LocalTextStyle.current,
                 )
             },
-            colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                containerColor = Color.Blue,
-                navigationIconContentColor = Color.White
-            ),
-            navigationIcon = { IconButton(onClick = { onBackPressed() }) {
-                Icon(imageVector = Icons.Default.ArrowBack, "Return")
-            } }
+            navigationIcon = {
+                IconButton(onClick = { onBackPressedDispatcher.onBackPressed() }) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack, "Return",
+                        tint = Color.White
+                    )
+                }
+            }
         )
     }
 
     @Composable
     private fun Downloadcontent(name: String?) {
-        Text(text = "Conteudo")
+        val linkState = remember { mutableStateOf("") }
+
+        Column (
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ){
+
+            OutlinedTextField(
+                value = linkState.value,
+                onValueChange = { linkState.value = it },
+                label = { Text(text = "link") },
+                placeholder = { Text(text =  stringResource(id = R.string.paste_link)) },
+            )
+        }
     }
 }
 

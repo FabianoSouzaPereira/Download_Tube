@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Download Tube</string>
     <string name="title_activity_downloads">Downloads</string>
+    <string name="paste_link">Cole o link para download</string>
 </resources>

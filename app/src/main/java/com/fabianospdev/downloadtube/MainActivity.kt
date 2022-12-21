@@ -13,6 +13,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -56,14 +57,14 @@ class MainActivity : ComponentActivity() {
                     letterSpacing = TextUnit.Unspecified,
                     textDecoration = TextDecoration.Underline,
                     textAlign = TextAlign.Center,
-                    lineHeight = 54.sp,
+                    lineHeight = 35.sp,
                     overflow = TextOverflow.Clip,
                     softWrap = false,
                     maxLines = Int.MAX_VALUE,
                     style = LocalTextStyle.current,
                 )
             },
-            backgroundColor = Color.Blue
+            backgroundColor = colorResource(id = R.color.purple_500)
         )
     }
 
