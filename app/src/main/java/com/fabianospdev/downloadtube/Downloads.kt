@@ -3,6 +3,8 @@ package com.fabianospdev.downloadtube
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -39,8 +41,9 @@ class Downloads : ComponentActivity() {
         SmallTopAppBar(
             title = {
                 Text(
-                    text = stringResource(id = R.string.app_name),
-                    color = Color.Blue,
+                    text = stringResource(id = R.string.title_activity_downloads),
+                    color = Color.White,
+                    fontSize = 18.sp,
                     fontStyle = FontStyle.Italic,
                     fontWeight = FontWeight.W500,
                     fontFamily = FontFamily.SansSerif,
@@ -55,9 +58,12 @@ class Downloads : ComponentActivity() {
                 )
             },
             colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                containerColor = Color.LightGray,
-                navigationIconContentColor = Color.Blue
-            )
+                containerColor = Color.Blue,
+                navigationIconContentColor = Color.White
+            ),
+            navigationIcon = { IconButton(onClick = { onBackPressed() }) {
+                Icon(imageVector = Icons.Default.ArrowBack, "Return")
+            } }
         )
     }
 
